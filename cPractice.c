@@ -1,11 +1,33 @@
 #include <stdio.h>
+#include <ctype.h>
 
 int main(){
-    const float PI = 3.1415926;
-    float r = 0.0;
-    printf("Please input the radius of the circle: ");
-    scanf("%f", &r);
-    printf("The circumference of the circle is %f\n", 2 * PI * r);
-    printf("The area of the circle is %f\n", PI * r * r);
+    char operator;
+    double firstNumber, secondNumber, result;
+    printf("Enter an operator (+, -, *, /): ");
+    scanf("%c", &operator);
+    printf("Enter two operands: ");
+    scanf("%lf %lf", &firstNumber, &secondNumber);
+    switch (operator)
+    {
+    case '+':
+        result = firstNumber + secondNumber;
+        break;
+    case '-':
+        result = firstNumber - secondNumber;
+        break;
+    case '*':
+        result = firstNumber * secondNumber;
+        break;
+    case '/':
+        result = firstNumber / secondNumber;
+        break;
+    default:
+        printf("Error! operator is not correct");
+        break;
+    }
+    printf("%.1lf %c %.1lf = %.1lf\n", firstNumber, operator, secondNumber, result);
+
+
     return 0;
 }
